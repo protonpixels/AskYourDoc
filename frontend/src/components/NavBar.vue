@@ -49,10 +49,48 @@ nav {
 
   h1 {
     width: fit-content;
-    background: linear-gradient(135deg, #ff0000, #ffe600);
+    background: linear-gradient(135deg, #ff0000, #ffe600, #ff0000);
     background-clip: text;
     color: transparent;
     font-size: calc($navheight-desktop * 0.4);
+
+    &:after {
+      display: block;
+      content: "";
+      position: relative;
+      top: 3px;
+      left: 0;
+      height: 5px;
+      width: 100%;
+      background: linear-gradient(
+        135deg,
+        transparent,
+        #ff0000,
+        #ffe600,
+        #ff0000,
+        transparent
+      );
+      border-radius: 3px;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      position: relative;
+      top: 0px;
+      left: 0;
+      height: 5px;
+      width: 100%;
+      background: linear-gradient(
+        135deg,
+        transparent,
+        #ff0000,
+        #ffe600,
+        #ff0000,
+        transparent
+      );
+      border-radius: 3px;
+    }
   }
 }
 </style>

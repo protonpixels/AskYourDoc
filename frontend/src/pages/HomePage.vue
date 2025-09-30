@@ -3,39 +3,43 @@
     <div class="hero-container">
       <div class="hero">
         <div class="inputarea">
-          <div class="header">
-            <h1>Upload Your Docs</h1>
-            <h2>Ask Questions and Get Answers</h2>
-            <div class="file-selector">
-              <div class="file-input-wrapper">
-                <input
-                  type="file"
-                  ref="fileInputRef"
-                  @change="handleFileSelect"
-                  class="file-input"
-                  :accept="accept"
-                  :multiple="multiple"
-                />
-                <button @click="triggerFileInput" class="custom-button">
-                  Choose File
-                </button>
-                <span v-if="selectedFile" class="file-name">
-                  {{ selectedFile.name }}
-                </span>
-                <span v-else class="placeholder">No file chosen</span>
-              </div>
+          <div class="instructions">
+            <p>Get Instant Insights From Your eBooks and documents</p>
+            <ul>
+              <li>1. Upload Your Document.</li>
+              <li>2. Type Your Question.</li>
+              <li>3. Click The Blue 'Ask' Button.</li>
+            </ul>
+          </div>
+          <div class="file-selector">
+            <div class="file-input-wrapper">
+              <input
+                type="file"
+                ref="fileInputRef"
+                @change="handleFileSelect"
+                class="file-input"
+                :accept="accept"
+                :multiple="multiple"
+              />
+              <button @click="triggerFileInput" class="custom-button">
+                Choose File
+              </button>
+              <span v-if="selectedFile" class="file-name">
+                {{ selectedFile.name }}
+              </span>
+              <span v-else class="placeholder">No file chosen</span>
+            </div>
 
-              <div v-if="multiple && selectedFiles.length" class="file-list">
-                <h4>Selected Files:</h4>
-                <ul>
-                  <li v-for="(file, index) in selectedFiles" :key="index">
-                    {{ file.name }} ({{ formatFileSize(file.size) }})
-                    <button @click="removeFile(index)" class="remove-btn">
-                      Remove
-                    </button>
-                  </li>
-                </ul>
-              </div>
+            <div v-if="multiple && selectedFiles.length" class="file-list">
+              <h4>Selected Files:</h4>
+              <ul>
+                <li v-for="(file, index) in selectedFiles" :key="index">
+                  {{ file.name }} ({{ formatFileSize(file.size) }})
+                  <button @click="removeFile(index)" class="remove-btn">
+                    Remove
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -140,129 +144,156 @@ defineExpose({
 <style lang="scss" scoped>
 .page {
   width: 100%;
-  min-height: calc(100svh - $navheight-desktop);
+  min-height: calc(100svh - $navheight-desktop - $footerheight-desktop);
+  background: linear-gradient(#c9c9ff, #fff);
 }
 
 .hero-container {
   width: 100%;
-  height: 100%;
+  min-height: inherit;
   padding: 0 12svw;
-}
 
-.hero {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-
-  .inputarea {
-    padding-top: calc($navheight-desktop * 0.382);
-    text-align: start;
-
-    .file-input-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .file-input {
-      display: none;
-    }
-
-    .custom-button {
-      padding: 10px 20px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .custom-button:hover {
-      background: #0056b3;
-    }
-
-    .file-name {
-      color: #28a745;
-      font-weight: 500;
-    }
-
-    .placeholder {
-      color: #6c757d;
-    }
-
-    .file-list {
-      margin-top: 15px;
-    }
-
-    .file-list ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .file-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 12px;
-      margin: 5px 0;
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-    }
-
-    .remove-btn {
-      padding: 4px 8px;
-      background: #dc3545;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .remove-btn:hover {
-      background: #c82333;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: calc($navheight-desktop * 0.382);
-    }
-    h2 {
-      font-size: 20px;
-      margin-bottom: calc($navheight-desktop * 0.382);
-    }
-  }
-  .answer-display {
-    min-height: 300px;
+  .hero {
     height: 100%;
-    width: 100%;
-    background: #fff;
-    border: 1px solid blue;
-    border-bottom: 0;
-    border-top: 0;
-    box-shadow: inset 0 0 30px 1px rgba(blue, 0.3);
-  }
-  .textarea-and-button {
-    display: flex;
-    textarea {
-      width: 100%;
-      height: 100px;
-      border-radius: 0 0 0 15px;
-      padding: 15px;
-      resize: none;
-      border: 1px solid blue;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4svw;
+
+    .questionarea {
+      margin-top: 4svh;
+      height: calc(92svh - $navheight-desktop - $footerheight-desktop);
+      box-shadow: 0 0 30px 1px rgba(blue, 0.3);
+      border-radius: 15px;
+
+      .answer-display {
+        height: 80%;
+        width: 100%;
+        background: #fff;
+        border: 1px solid blue;
+        border-bottom: 0;
+        border-radius: 15px 15px 0 0;
+      }
+      .textarea-and-button {
+        display: flex;
+        height: 20%;
+        border-radius: 0 0 15px 15px;
+        textarea {
+          width: 100%;
+          height: 100%;
+          border-radius: 0 0 0 15px;
+          padding: 15px;
+          resize: none;
+          border: 1px solid blue;
+        }
+        .ask-btn {
+          border-radius: 0 0 15px 0;
+          min-width: 80px;
+          border: 1px solid blue;
+          background: transparent;
+          color: #fff;
+          border-left: 0;
+          background: linear-gradient(#0056b3, #007bff);
+          outline: none;
+          transition: all 0.2s ease;
+          box-shadow: inset 0 0 20px 1px rgb(204, 204, 255);
+          &:hover {
+            background: linear-gradient(-145deg, #0056b3, #007bff);
+            text-shadow: 0 0 8px #fff;
+          }
+
+          &:active {
+            background: linear-gradient(-145deg, #003c7c, #0058b6);
+            box-shadow: inset 0 0 20px 1px rgb(0, 0, 65);
+            color: $yellow;
+          }
+        }
+      }
     }
-    .ask-btn {
-      border-radius: 0 0 15px 0;
-      min-width: 80px;
-      border: 1px solid blue;
-      background: blue;
-      color: #fff;
-      border-left: 0;
+
+    .inputarea {
+      padding-top: calc($navheight-desktop * 0.382);
+      height: 100%;
+      text-align: start;
+
+      .instructions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 45px 0;
+
+        ul {
+          list-style-type: none;
+        }
+      }
+
+      .file-input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .custom-button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .custom-button:hover {
+        background: #0056b3;
+      }
+
+      .file-name {
+        color: #28a745;
+        font-weight: 500;
+      }
+
+      .placeholder {
+        color: #6c757d;
+      }
+
+      .file-list {
+        margin-top: 15px;
+      }
+
+      .file-list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .file-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        margin: 5px 0;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+      }
+
+      .remove-btn {
+        padding: 4px 8px;
+        background: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+
+      .remove-btn:hover {
+        background: #c82333;
+      }
     }
   }
 }

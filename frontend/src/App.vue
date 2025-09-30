@@ -3,9 +3,11 @@
   <main>
     <router-view />
   </main>
+  <FootBar />
 </template>
 
 <script setup>
+import FootBar from "./components/FootBar.vue";
 import NavBar from "./components/NavBar.vue";
 </script>
 
