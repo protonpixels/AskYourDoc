@@ -13,6 +13,8 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 const documentUploaded = ref(false);
 </script>
 

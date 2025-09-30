@@ -11,6 +11,9 @@ import NavBar from "./components/NavBar.vue";
 
 <style lang="scss">
 main {
+  max-width: 100%;
+  width: 100%;
+  height: fit-content;
   padding-top: $navheight-desktop;
   @media (max-width: 750px) {
     padding-top: $navheight-mobile;
@@ -25,6 +28,7 @@ main {
   width: 100%;
   height: 100%;
   max-width: 100%;
+  overflow-x: hidden;
   max-height: 100%;
 }
 
