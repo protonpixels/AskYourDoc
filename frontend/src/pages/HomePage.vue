@@ -145,7 +145,7 @@ defineExpose({
 .page {
   width: 100%;
   min-height: calc(100svh - $navheight-desktop - $footerheight-desktop);
-  background: linear-gradient(#c9c9ff, #fff);
+  background: linear-gradient(lighten($orange, 40%), lighten($yellow, 40%));
 }
 
 .hero-container {
@@ -162,14 +162,14 @@ defineExpose({
     .questionarea {
       margin-top: 4svh;
       height: calc(92svh - $navheight-desktop - $footerheight-desktop);
-      box-shadow: 0 0 30px 1px rgba(blue, 0.3);
+      box-shadow: 0 0 30px 1px rgba($orange, 0.3);
       border-radius: 15px;
 
       .answer-display {
         height: 80%;
         width: 100%;
         background: #fff;
-        border: 1px solid blue;
+        border: 1px solid $orange;
         border-bottom: 0;
         border-radius: 15px 15px 0 0;
       }
@@ -183,27 +183,31 @@ defineExpose({
           border-radius: 0 0 0 15px;
           padding: 15px;
           resize: none;
-          border: 1px solid blue;
+          border: 1px solid $orange;
         }
         .ask-btn {
           border-radius: 0 0 15px 0;
           min-width: 80px;
-          border: 1px solid blue;
+          border: 1px solid $orange;
           background: transparent;
           color: #fff;
           border-left: 0;
-          background: linear-gradient(#0056b3, #007bff);
+          background: linear-gradient($orange, $yellow);
           outline: none;
           transition: all 0.2s ease;
-          box-shadow: inset 0 0 20px 1px rgb(204, 204, 255);
+          box-shadow: inset 0 0 20px 1px lighten($yellow, 40%);
           &:hover {
-            background: linear-gradient(-145deg, #0056b3, #007bff);
+            background: linear-gradient(-145deg, $orange, $yellow);
             text-shadow: 0 0 8px #fff;
           }
 
           &:active {
-            background: linear-gradient(-145deg, #003c7c, #0058b6);
-            box-shadow: inset 0 0 20px 1px rgb(0, 0, 65);
+            background: linear-gradient(
+              -145deg,
+              darken($orange, 20%),
+              darken($yellow, 20%)
+            );
+            box-shadow: inset 0 0 20px 1px darken($orange, 40%);
             color: $yellow;
           }
         }
