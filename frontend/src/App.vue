@@ -13,7 +13,8 @@ import NavBar from "./components/NavBar.vue";
 main {
   max-width: 100%;
   width: 100%;
-  height: fit-content;
+  max-height: fit-content;
+  box-sizing: border-box;
   padding-top: $navheight-desktop;
   @media (max-width: 750px) {
     padding-top: $navheight-mobile;
