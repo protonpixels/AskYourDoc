@@ -145,56 +145,52 @@ defineExpose({
 .page {
   width: 100%;
   min-height: calc(100svh - $navheight-desktop);
-  background: linear-gradient(
-    135deg,
-    lighten($orange, 30%),
-    lighten($yellow, 40%),
-    lighten($orange, 30%)
-  );
+  background: $bg-dark-gradient;
 }
 
 .hero-container {
   width: 100%;
   min-height: inherit;
-  padding: 0 12svw;
+  padding: 0 9svw;
 
   .hero {
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4svw;
-
+    display: flex;
+    gap: 5svw;
     .questionarea {
       margin-top: 4svh;
       height: calc(99svh - $navheight-desktop - $footerheight-desktop);
       box-shadow: 0 0 30px 1px rgba($orange, 0.3);
       border-radius: 15px;
-
+      width: 100%;
       .answer-display {
         height: 80%;
         width: 100%;
-        background: rgba(#fff, 0.4);
+        background: rgba(#fff, 0.6);
 
         border-bottom: 0;
         border-radius: 15px 15px 0 0;
       }
+      overflow: hidden;
       .textarea-and-button {
         display: flex;
         height: 20%;
         border-radius: 0 0 15px 15px;
+        border: 8px solid #fff;
+        background-color: #fff;
+        box-shadow: 0 0 15px 1px rgba($orange, 0.3);
         textarea {
           width: 100%;
           height: 100%;
-          border-radius: 0 0 0 15px;
           padding: 15px;
           font-size: 18px;
           font-family: sans-serif;
           border: 0;
-          border-top: 1px solid $orange;
+
           resize: none;
         }
         .ask-btn {
-          border-radius: 0 0 15px 0;
+          border-radius: 15px;
           min-width: 100px;
           border: 0;
           background: transparent;
@@ -223,10 +219,9 @@ defineExpose({
     }
 
     .inputarea {
-      padding-top: calc($navheight-desktop * 0.382);
       height: 100%;
       text-align: start;
-
+      width: 40svw;
       .instructions {
         display: flex;
         flex-direction: column;

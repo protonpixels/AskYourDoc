@@ -113,21 +113,21 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: linear-gradient(#1f004e, #0f0025);
+  background: $bg-dark;
   box-shadow: 0 0 5px 3px rgba(#0f0025, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12svw;
+  padding: 0 5svw;
 
   .nav-list {
     color: #fff;
     display: flex;
-    gap: 2svw;
+    gap: 3svw;
     list-style-type: none;
 
     li {
-      text-shadow: 0 0 5px #ff0000;
+      text-shadow: 0 0 5px $orange;
       transition: all 0.5s ease;
       padding: 3px 5px;
 
@@ -144,7 +144,7 @@ nav {
       }
       &:hover {
         transform: translateX(-0.382svw);
-        color: #ffe600;
+        color: $yellow;
 
         &:after {
           width: 100%;
@@ -157,9 +157,9 @@ nav {
   .brand {
     display: flex;
     align-items: center;
-    gap: 2svw;
+    gap: 1svw;
     height: 100%;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
     &:hover {
       transition: transform 0.382s ease;
       transform: translateX(0.618svw);
@@ -167,7 +167,7 @@ nav {
 
     h1 {
       width: fit-content;
-      background: linear-gradient(135deg, #ff0000, #ffe600, #ff0000);
+      background: linear-gradient(135deg, $orange, $yellow, $orange);
       background-clip: text;
       color: transparent;
       font-size: calc($navheight-desktop * 0.4);
@@ -183,9 +183,9 @@ nav {
         background: linear-gradient(
           135deg,
           transparent,
-          rgba(#ff0000, 0.6),
-          rgba(#ffe600, 0.6),
-          rgba(#ff0000, 0.6),
+          rgba($orange, 0.6),
+          rgba($yellow, 0.6),
+          rgba($orange, 0.6),
           transparent
         );
         border-radius: 3px;
