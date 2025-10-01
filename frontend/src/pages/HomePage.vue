@@ -224,8 +224,14 @@ defineExpose({
         flex-direction: column;
         gap: 15px;
         margin: 45px 0;
-
+        p {
+          font-size: 22px;
+          font-weight: bold;
+        }
         ul {
+          gap: 14px;
+          display: flex;
+          flex-direction: column;
           list-style-type: none;
         }
       }
