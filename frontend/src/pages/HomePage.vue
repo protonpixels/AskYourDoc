@@ -144,8 +144,13 @@ defineExpose({
 <style lang="scss" scoped>
 .page {
   width: 100%;
-  min-height: calc(100svh - $navheight-desktop - $footerheight-desktop);
-  background: linear-gradient(lighten($orange, 40%), lighten($yellow, 40%));
+  min-height: calc(100svh - $navheight-desktop);
+  background: linear-gradient(
+    135deg,
+    lighten($orange, 30%),
+    lighten($yellow, 40%),
+    lighten($orange, 30%)
+  );
 }
 
 .hero-container {
@@ -161,15 +166,15 @@ defineExpose({
 
     .questionarea {
       margin-top: 4svh;
-      height: calc(92svh - $navheight-desktop - $footerheight-desktop);
+      height: calc(99svh - $navheight-desktop - $footerheight-desktop);
       box-shadow: 0 0 30px 1px rgba($orange, 0.3);
       border-radius: 15px;
 
       .answer-display {
         height: 80%;
         width: 100%;
-        background: #fff;
-        border: 1px solid $orange;
+        background: rgba(#fff, 0.4);
+
         border-bottom: 0;
         border-radius: 15px 15px 0 0;
       }
@@ -182,13 +187,16 @@ defineExpose({
           height: 100%;
           border-radius: 0 0 0 15px;
           padding: 15px;
+          font-size: 18px;
+          font-family: sans-serif;
+          border: 0;
+          border-top: 1px solid $orange;
           resize: none;
-          border: 1px solid $orange;
         }
         .ask-btn {
           border-radius: 0 0 15px 0;
-          min-width: 80px;
-          border: 1px solid $orange;
+          min-width: 100px;
+          border: 0;
           background: transparent;
           color: #fff;
           border-left: 0;
@@ -225,6 +233,7 @@ defineExpose({
         gap: 15px;
         margin: 45px 0;
         p {
+          color: $bg-dark;
           font-size: 22px;
           font-weight: bold;
         }

@@ -113,8 +113,8 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0f0025;
-  box-shadow: 0 0 12px 1px rgba(#0f0025, 0.8);
+  background: linear-gradient(#1f004e, #0f0025);
+  box-shadow: 0 0 5px 3px rgba(#0f0025, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -123,13 +123,33 @@ nav {
   .nav-list {
     color: #fff;
     display: flex;
-    gap: 4svw;
+    gap: 2svw;
     list-style-type: none;
 
     li {
-      transition: color 0.3s ease;
+      text-shadow: 0 0 5px #ff0000;
+      transition: all 0.5s ease;
+      padding: 3px 5px;
+
+      &:after {
+        content: "";
+        display: block;
+        position: relative;
+        height: 3px;
+        background: $orange;
+        top: 5px;
+        left: 0;
+        width: 0%;
+        transition: all 0.3s ease;
+      }
       &:hover {
+        transform: translateX(-0.382svw);
         color: #ffe600;
+
+        &:after {
+          width: 100%;
+          background: $yellow;
+        }
       }
     }
   }
@@ -163,9 +183,9 @@ nav {
         background: linear-gradient(
           135deg,
           transparent,
-          #ff0000,
-          #ffe600,
-          #ff0000,
+          rgba(#ff0000, 0.6),
+          rgba(#ffe600, 0.6),
+          rgba(#ff0000, 0.6),
           transparent
         );
         border-radius: 3px;
@@ -182,9 +202,9 @@ nav {
         background: linear-gradient(
           135deg,
           transparent,
-          #ff0000,
-          #ffe600,
-          #ff0000,
+          rgba(#ff0000, 0.6),
+          rgba(#ffe600, 0.6),
+          rgba(#ff0000, 0.6),
           transparent
         );
         border-radius: 3px;
